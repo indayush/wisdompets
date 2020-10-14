@@ -6,3 +6,8 @@ python manage.py runserver                  # To run the application
 To Create an app -
 
 python manage.py startapp appname           # App Name all small case letters
+
+
+
+
+Course Link - https://www.linkedin.com/learning/learning-django-2

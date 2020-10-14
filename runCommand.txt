@@ -1,0 +1,8 @@
+django-admin startproject wisdompets        # Project Name all small case letters
+cd wisdompets
+python manage.py runserver                  # To run the application
+
+
+To Create an app -
+
+python manage.py startapp appname           # App Name all small case letters

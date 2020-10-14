@@ -1,0 +1,324 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS E:\ScoopVS\Django_Project\wisdompets> dir
+
+
+    Directory: E:\ScoopVS\Django_Project\wisdompets
+
+
+Mode                 LastWriteTime         Length Name
+d-----        07-10-2020  03.38 PM                adoptions
+d-----        07-10-2020  03.32 PM                wisdompets
+-a----        07-10-2020  03.32 PM              0 db.sqlite3
+-a----        07-10-2020  03.32 PM            651 manage.py
+-a----        07-10-2020  03.37 PM            271 runCommand.txt
+
+
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py makemigrations
+Traceback (most recent call last):
+  File "manage.py", line 21, in <module>
+    main()
+  File "manage.py", line 17, in main
+    execute_from_command_line(sys.argv)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\core\management\__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\core\management\__init__.py", line 377, in execute
+    django.setup()
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\apps\registry.py", line 114, in populate
+    app_config.import_models()
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\apps\config.py", line 211, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "E:\ScoopVS\Django_Project\wisdompets\adoptions\models.py", line 7, in <module>
+    class Pet(models.Model):
+  File "E:\ScoopVS\Django_Project\wisdompets\adoptions\models.py", line 18, in Pet
+    vaccinations = models.ManyTOManyField('Vaccine', blank=True)                            # Since Applied Vaccines might not be known
+AttributeError: module 'django.db.models' has no attribute 'ManyTOManyField'
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py makemigrations
+Migrations for 'adoptions':
+  adoptions\migrations\0001_initial.py
+    - Create model Vaccine
+    - Create model Pet
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py showmigrations
+admin
+ [ ] 0001_initial
+ [ ] 0002_logentry_remove_auto_add
+ [ ] 0003_logentry_add_action_flag_choices
+adoptions
+ [ ] 0001_initial
+auth
+ [ ] 0002_alter_permission_name_max_length
+ [ ] 0003_alter_user_email_max_length
+ [ ] 0004_alter_user_username_opts
+ [ ] 0005_alter_user_last_login_null
+ [ ] 0006_require_contenttypes_0002
+ [ ] 0007_alter_validators_add_error_messages
+ [ ] 0008_alter_user_username_max_length
+ [ ] 0009_alter_user_last_name_max_length
+ [ ] 0010_alter_group_name_max_length
+ [ ] 0011_update_proxy_permissions
+contenttypes
+ [ ] 0001_initial
+ [ ] 0002_remove_content_type_name
+sessions
+ [ ] 0001_initial
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py migrate       
+Operations to perform:
+  Apply all migrations: admin, adoptions, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying adoptions.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying sessions.0001_initial... OK
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py showmigrations
+admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+ [X] 0003_logentry_add_action_flag_choices
+adoptions
+ [X] 0001_initial
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+ [X] 0003_alter_user_email_max_length
+ [X] 0004_alter_user_username_opts
+ [X] 0005_alter_user_last_login_null
+ [X] 0006_require_contenttypes_0002
+ [X] 0007_alter_validators_add_error_messages
+ [X] 0008_alter_user_username_max_length
+ [X] 0010_alter_group_name_max_length
+ [X] 0011_update_proxy_permissions
+contenttypes
+ [X] 0001_initial
+ [X] 0002_remove_content_type_name
+sessions
+ [X] 0001_initial
+PS E:\ScoopVS\Django_Project\wisdompets> dir
+
+
+    Directory: E:\ScoopVS\Django_Project\wisdompets
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        07-10-2020  03.32 PM                wisdompets
+-a----        12-10-2020  08.45 PM         155648 db.sqlite3
+-a----        07-10-2020  03.32 PM            651 manage.py
+-a----        27-02-2020  10.13 AM           4728 pet_data.csv
+-a----        07-10-2020  03.37 PM            271 runCommand.txt
+
+
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py load_pet_data 
+Creating vaccine data
+Loading pet data for pets available for adoption
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py createsuperuser
+Email address:
+Password:
+Password (again):
+The password is too similar to the username.
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+Bypass password validation and create user anyway? [y/N]: N
+Password:
+Password (again):
+Superuser created successfully.
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py runserver      
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 12, 2020 - 21:08:29
+Django version 3.0.3, using settings 'wisdompets.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[12/Oct/2020 21:08:31] "GET / HTTP/1.1" 200 16351
+[12/Oct/2020 21:08:31] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[12/Oct/2020 21:08:31] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[12/Oct/2020 21:08:31] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[12/Oct/2020 21:08:31] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[12/Oct/2020 21:08:31] "GET /favicon.ico HTTP/1.1" 404 1976
+[12/Oct/2020 21:08:37] "GET /admin HTTP/1.1" 301 0
+[12/Oct/2020 21:08:37] "GET /admin/ HTTP/1.1" 302 0
+[12/Oct/2020 21:08:37] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1913
+[12/Oct/2020 21:08:37] "GET /static/admin/css/base.css HTTP/1.1" 200 16378
+[12/Oct/2020 21:08:37] "GET /static/admin/css/login.css HTTP/1.1" 200 1233
+[12/Oct/2020 21:08:37] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18052
+[12/Oct/2020 21:08:46] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[12/Oct/2020 21:08:46] "GET /admin/ HTTP/1.1" 200 3724
+[12/Oct/2020 21:08:46] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[12/Oct/2020 21:08:46] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[12/Oct/2020 21:08:46] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[12/Oct/2020 21:08:58] "GET /admin/auth/group/ HTTP/1.1" 200 3502
+[12/Oct/2020 21:08:58] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6190
+[12/Oct/2020 21:08:58] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[12/Oct/2020 21:08:58] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[12/Oct/2020 21:08:58] "GET /static/admin/js/core.js HTTP/1.1" 200 5723
+[12/Oct/2020 21:08:58] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6918
+[12/Oct/2020 21:08:58] "GET /static/admin/js/actions.js HTTP/1.1" 200 6766
+[12/Oct/2020 21:08:58] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1530
+[12/Oct/2020 21:08:58] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8941
+[12/Oct/2020 21:08:58] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 280364
+[12/Oct/2020 21:08:58] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[12/Oct/2020 21:08:58] "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[12/Oct/2020 21:08:58] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[12/Oct/2020 21:08:59] "GET /admin/ HTTP/1.1" 200 3724
+[12/Oct/2020 21:09:01] "GET /admin/adoptions/pet/ HTTP/1.1" 200 9593
+[12/Oct/2020 21:09:01] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[12/Oct/2020 21:09:04] "GET /admin/adoptions/pet/1/change/ HTTP/1.1" 200 9183
+[12/Oct/2020 21:09:04] "GET /static/admin/css/forms.css HTTP/1.1" 200 8518
+[12/Oct/2020 21:09:04] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[12/Oct/2020 21:09:04] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[12/Oct/2020 21:09:04] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[12/Oct/2020 21:09:04] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7777
+[12/Oct/2020 21:09:04] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20232
+[12/Oct/2020 21:09:04] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10322
+[12/Oct/2020 21:09:04] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[12/Oct/2020 21:09:04] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[12/Oct/2020 21:09:08] "GET /admin/ HTTP/1.1" 200 3724
+[12/Oct/2020 21:09:10] "GET /admin/adoptions/pet/ HTTP/1.1" 200 9593
+[12/Oct/2020 21:09:10] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+E:\ScoopVS\Django_Project\wisdompets\adoptions\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 12, 2020 - 21:11:14
+Django version 3.0.3, using settings 'wisdompets.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+E:\ScoopVS\Django_Project\wisdompets\adoptions\models.py changed, reloading.
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\utils\autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\core\management\commands\runserver.py", line 109, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\utils\autoreload.py", line 76, in raise_last_exception
+    raise _exception[1]
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\core\management\__init__.py", line 357, in execute
+    autoreload.check_errors(django.setup)()
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\utils\autoreload.py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\apps\registry.py", line 114, in populate
+    app_config.import_models()
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\apps\config.py", line 211, in import_models
+    self.models_module = import_module(models_module_name)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "E:\ScoopVS\Django_Project\wisdompets\adoptions\models.py", line 26
+    
+    ^
+SyntaxError: unexpected EOF while parsing
+E:\ScoopVS\Django_Project\wisdompets\adoptions\models.py changed, reloading.
+Watching for file changes with StatReloader
+
+System check identified no issues (0 silenced).
+October 12, 2020 - 21:13:03
+Django version 3.0.3, using settings 'wisdompets.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[12/Oct/2020 21:13:37] "GET /admin/adoptions/pet/ HTTP/1.1" 200 13182
+[12/Oct/2020 21:13:37] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[12/Oct/2020 21:13:49] "GET /admin/adoptions/pet/24/change/ HTTP/1.1" 200 9222
+[12/Oct/2020 21:13:49] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+PS E:\ScoopVS\Django_Project\wisdompets> python manage.py shell    
+Python 3.8.5 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from adoptions.models import pet
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+ImportError: cannot import name 'pet' from 'adoptions.models' (E:\ScoopVS\Django_Project\wisdompets\adoptions\models.py)
+>>> from adoptions.models import Pet 
+>>> Pet.Objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Pet' has no attribute 'Objects'
+>>> Pet.objects.all() 
+<QuerySet [<Pet: Pet object (1)>, <Pet: Pet object (2)>, <Pet: Pet object (3)>, <Pet: Pet object (4)>, <Pet: Pet object (5)>, <Pet: Pet object (6)>, <Pet: Pet object (7)>, <Pet: Pet object (8)>, <Pet: Pet object (9)>, <Pet: Pet object (10)>, <Pet: Pet object (11)>, <Pet: Pet object (12)>, <Pet: Pet object (13)>, <Pet: Pet object (14)>, 
+<Pet: Pet object (15)>, <Pet: Pet object (16)>, <Pet: Pet object (17)>, <Pet: Pet object (18)>, <Pet: Pet object (19)>, <Pet: Pet object (20)>, '...(remaining elements truncated)...']>
+>>> pets = Pet.objects.all() 
+>>> pet = pets[0]
+>>> pet.name
+'Pepe'
+>>> pet.id
+1
+>>> pets = Pet.objects.get(id=1) 
+>>> pet.name
+'Pepe'
+>>> pets = Pet.objects.get(id=28) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\db\models\query.py", line 415, in get
+    raise self.model.DoesNotExist(
+adoptions.models.Pet.DoesNotExist: Pet matching query does not exist.
+>>> pets = Pet.objects.get(sex=M)  
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'M' is not defined
+>>> pets = Pet.objects.get(age=1) 
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Ayush Adarsh\scoop\apps\python\current\lib\site-packages\django\db\models\query.py", line 419, in get
+    raise self.model.MultipleObjectsReturned(
+adoptions.models.Pet.MultipleObjectsReturned: get() returned more than one Pet -- it returned 3!
+>>> pet.vaccinations.all()
+<QuerySet []>
+>>> pets = Pet.objects.get(id=7)  
+>>> pet.vaccinations.all()       
+<QuerySet []>
+>>> pets.vaccinations.all() 
+<QuerySet [<Vaccine: Canine Parvo>, <Vaccine: Canine Distemper>, <Vaccine: Canine Rabies>, <Vaccine: Canine Leptospira>]>
+>>> pet = Pet.objects.get(id=1)  
+>>> pet = Pet.objects.get(id=7) 
+>>> pet.vaccinations.all()      
+<QuerySet [<Vaccine: Canine Parvo>, <Vaccine: Canine Distemper>, <Vaccine: Canine Rabies>, <Vaccine: Canine Leptospira>]>
+>>> exit
+Use exit() or Ctrl-Z plus Return to exit
+>>> exit()
+
